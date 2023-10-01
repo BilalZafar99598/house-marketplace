@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from "firebase/firestore"
 import { db } from '../firebase.config'
+import OAuth from "../components/OAuth"
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 
@@ -60,7 +61,6 @@ const SignUp = () => {
               Welcome Back!
             </p>
           </header>
-          <main>
             <form onSubmit={onSubmit}>
             <input type="name" className="nameInput" placeholder="Name" id="name"
                 value={name} onChange={onChange}/>
@@ -87,11 +87,11 @@ const SignUp = () => {
               </button>
             </div>
             </form>
-            {/* Google OAuth Here  */}
+            
             <Link to='/sign-in' className="registerLink">
               Sign In Instead
-            </Link>
-          </main>        
+            </Link> 
+            <OAuth/>
         </div>
       </>
     )
